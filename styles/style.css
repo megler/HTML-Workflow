@@ -1,69 +1,18 @@
-html {
-  box-sizing: border-box;
+/* Layout for Natalya Shelburne Color Picker 
+* Adapted from Practical Color Theory for People Who Code
+* https://tallys.github.io/color-theory/
+*/
+.colorContainer {
+  max-width: 80%;
+  height: 80vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  margin: auto;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
-html {
-  font-size: 62.5%;
-}
-
-body {
-  font-size: 1.6rem;
-  line-height: 2.3rem;
-}
-
-.container {
-  display: grid;
-  grid-template-areas: "header header header" "nav content side" "footer footer footer";
-  grid-template-columns: 200px 1fr 200px;
-  grid-template-rows: auto 1fr auto;
-  grid-gap: 10px;
-  height: 100vh;
-}
-
-@media (max-width: 768px) {
-  .container {
-    grid-template-areas: "header" "nav" "content" "side" "footer";
-    grid-template-columns: 1fr;
-    grid-template-rows: auto minmax(75px, auto) 1fr minmax(75px, auto) auto;
-    /* Footer */
-  }
-}
-
-.container nav,
-.container aside {
-  margin: 0;
-}
-
-header {
-  grid-area: header;
-}
-
-nav {
-  grid-area: nav;
-  margin-left: 0.5rem;
-}
-
-main {
-  grid-area: content;
-}
-
-aside {
-  grid-area: side;
-  margin-right: 0.5rem;
-}
-
-footer {
-  grid-area: footer;
-}
-
-/*This is a color helper from Natalya Shelborne.  I'm going to put the entire file here so it doesn't 
-jack up the rest of my CSS.  I want this at the bottom. */
+/* End Layout On The colors.html Page */
 .c1 {
   background-color: #ed212f;
   height: 100px;
@@ -262,14 +211,66 @@ jack up the rest of my CSS.  I want this at the bottom. */
   color: textColor(#3cd363);
 }
 
-.colorContainer {
-  max-width: 80%;
-  height: 80vh;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content: center;
-  margin: auto;
+html {
+  box-sizing: border-box;
 }
 
-/* End Layout On The colors.html Page */
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: 2.3rem;
+}
+
+.container {
+  display: grid;
+  grid-template-areas: "header header header" "nav content side" "footer footer footer";
+  grid-template-columns: 200px 1fr 200px;
+  grid-template-rows: auto 1fr auto;
+  grid-gap: 10px;
+  height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-areas: "header" "nav" "content" "side" "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(75px, auto) 1fr minmax(75px, auto) auto;
+    /* Footer */
+  }
+}
+
+.container nav,
+.container aside {
+  margin: 0;
+}
+
+header {
+  grid-area: header;
+}
+
+nav {
+  grid-area: nav;
+  margin-left: 0.5rem;
+}
+
+main {
+  grid-area: content;
+}
+
+aside {
+  grid-area: side;
+  margin-right: 0.5rem;
+}
+
+footer {
+  grid-area: footer;
+}

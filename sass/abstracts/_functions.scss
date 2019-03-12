@@ -1,1 +1,42 @@
 //Sass Functions
+
+// A loop  is being used here to dynamically style the 22 divs that make up
+// Natalya Shelburne's Color Palette
+//A key:value list of all color variables from Natalya Shelburne's File Is Used
+// To Dynamically Generate The Colors In the 22 Divs
+
+
+$colorList: (1, $first-color),
+(2, $second-color),
+(3, $primary-color),
+(4, $complementary-color),
+(5, $analogous-color),
+(6, $complementary-analogous),
+(7, $complementary-neutral),
+(8, $complementary-neutral-light),
+(9, $complementary-neutral-dark),
+(10, $primary-neutral),
+(11, $primary-neutral-light),
+(12, $primary-neutral-dark),
+(13, $primary-light),
+(14, $primary-dark),
+(15, $complementary-light),
+(16, $white),
+(17, $neutral-gray),
+(18, $primary-gray),
+(19, $complementary-gray),
+(20, $black),
+(21, $complementary-analogous),
+(22, $analogous-color);
+
+@each $colorList,
+$color in $colorList {
+    .c#{$colorList} {
+        background-color: $color;
+        height: 100px;
+        width: 150px;
+        text-align: center;
+        border: 1px solid $black;
+        color: textColor($color);
+    }
+}
