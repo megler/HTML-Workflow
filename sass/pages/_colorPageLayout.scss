@@ -1,0 +1,197 @@
+/*This is a color helper from Natalya Shelborne.  I'm going to put the entire file here so it doesn't 
+jack up the rest of my CSS.  I want this at the bottom. */
+
+//Variables 
+
+//Pick a color
+
+// THIS IS SET IN THE THEME FILE AT THE TOP LEVEL
+$first-color: hsla(356, 85%, 53%, 1);
+
+// Find the complement
+
+$second-color: complement($first-color);
+
+//Check if you have a cool color on your hands. Cool colors will overpower warm colors when mixing.
+
+@function is-cool-color($color) {
+	@return hue($color) < 310 and hue($color) > 140;
+}
+
+@function is-high-key-value($color) {
+	@return hue($color) > 20 and hue($color) < 190;
+}
+
+@function is-highest-key-value($color) {
+	@return hue($color) > 30 and hue($color) <90;
+}
+
+//Establish a relationship (similar lighting conditions) between colors.
+
+@function harmonious-mix($mix, $base) {
+	@if (is-cool-color($mix)){
+		@if is-high-key-value($base) {
+			@return mix($mix, $base, 11%);
+		}
+		@else {
+			@return mix($mix, $base, 16%);
+		}
+	}
+	@else {
+		@if is-high-key-value($base) {
+			@return mix($mix, $base, 13%);
+		}
+		@else {
+			@return mix($mix, $base, 23%);
+		}
+	}
+}
+
+@function mix-neutral($color) {
+	@if (is-highest-key-value($color)) {
+		@if is-high-key-value(complement($color)) {
+			@return mix(complement($color), $color, 19%);
+		}
+		@else {
+			@return mix(complement($color), $color, 13%);
+		}
+	}
+	@else if (is-high-key-value($color)) {
+		@if is-high-key-value(complement($color)) {
+			@return mix(complement($color), $color, 31%);
+		}
+		@else {
+			@return mix(complement($color), $color, 23%);
+		}
+	}
+	@else {
+		@if is-highest-key-value(complement($color)) {
+			@return mix(complement($color), $color, 31%);
+		}
+		@if is-high-key-value(complement($color)) {
+			@return mix(complement($color), $color, 26%);
+		}
+		@else {
+			@return mix(complement($color), $color, 23%);
+		}
+	}
+}
+
+@function pick-contrast-of($color) {
+	@if is-high-key-value($color){
+		@if lightness($color) < 30% {
+			@return lighten(complement($color), 86);
+		}
+		@else if lightness($color) > 70% {
+			@return darken(complement($color), 68);
+		}
+		@else {
+			@return darken(complement($color), 53);
+		}
+} @else {
+	@if lightness($color) < 30% {
+			@return lighten(complement($color), 86);
+		}
+		@else if lightness($color) > 70% {
+			@return darken(complement($color), 68);
+		}
+		@else {
+			@return lighten(complement($color), 53);
+		}
+	}
+}
+
+$primary-color: harmonious-mix($second-color, $first-color);
+$complementary-color: harmonious-mix($first-color, $second-color);
+
+$analogous-color: adjust-hue($complementary-color, -40);
+$complementary-analogous: mix($analogous-color, $complementary-color, 66);
+
+// Complementary Neutrals, highlight, midtone, shadow
+
+$complementary-neutral: mix-neutral($complementary-color);
+$complementary-neutral-light: lighten($complementary-neutral, 33);
+$complementary-neutral-dark: darken($complementary-neutral, 33);
+
+// Primary neutrals, highlight, midtone, shadow`
+
+$primary-neutral: mix-neutral($primary-color);
+$primary-neutral-light: lighten($primary-neutral, 33);
+$primary-neutral-dark: darken($primary-neutral, 33);
+
+// Primary tint and shade
+
+$primary-light: mix($primary-neutral-light, $primary-color, 45%);
+$primary-dark: mix($primary-neutral-dark, $primary-color, 45%);
+
+$complementary-light: mix($complementary-neutral-light, $complementary-color, 45%);
+
+// Pure neutrals, highlight, midtone, shadow
+
+$white: lighten($primary-neutral-light, 15);
+$neutral-gray: grayscale($primary-neutral);
+$primary-gray: mix($primary-color, $complementary-color, 30);
+$complementary-gray: mix($complementary-color, $primary-color, 63);
+$black: grayscale($complementary-neutral-dark);
+
+// Analogous Colors
+
+$analogous-color: adjust-hue($complementary-color, -40);
+$complementary-analogous: mix($analogous-color, $complementary-color, 66);
+
+//Functions
+
+// A loop  is being used here to dynamically style the 22 divs that make up
+// Natalya Shelburne's Color Palette
+//A key:value list of all color variables from Natalya Shelburne's File Is Used
+// To Dynamically Generate The Colors In the 22 Divs
+
+
+$colorList: (1, $first-color),
+(2, $second-color),
+(3, $primary-color),
+(4, $complementary-color),
+(5, $analogous-color),
+(6, $complementary-analogous),
+(7, $complementary-neutral),
+(8, $complementary-neutral-light),
+(9, $complementary-neutral-dark),
+(10, $primary-neutral),
+(11, $primary-neutral-light),
+(12, $primary-neutral-dark),
+(13, $primary-light),
+(14, $primary-dark),
+(15, $complementary-light),
+(16, $white),
+(17, $neutral-gray),
+(18, $primary-gray),
+(19, $complementary-gray),
+(20, $black),
+(21, $complementary-analogous),
+(22, $analogous-color);
+
+@each $colorList,
+$color in $colorList {
+    .c#{$colorList} {
+        background-color: $color;
+        height: 100px;
+        width: 150px;
+        text-align: center;
+        border: 1px solid $black;
+        color: textColor($color);
+    }
+}
+
+// layout
+
+.colorContainer {
+    max-width: 80%;
+    height: 80vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    margin: auto;
+}
+
+/* End Layout On The colors.html Page */

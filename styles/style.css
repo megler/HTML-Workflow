@@ -1,0 +1,275 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: 2.3rem;
+}
+
+.container {
+  display: grid;
+  grid-template-areas: "header header header" "nav content side" "footer footer footer";
+  grid-template-columns: 200px 1fr 200px;
+  grid-template-rows: auto 1fr auto;
+  grid-gap: 10px;
+  height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-areas: "header" "nav" "content" "side" "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(75px, auto) 1fr minmax(75px, auto) auto;
+    /* Footer */
+  }
+}
+
+.container nav,
+.container aside {
+  margin: 0;
+}
+
+header {
+  grid-area: header;
+}
+
+nav {
+  grid-area: nav;
+  margin-left: 0.5rem;
+}
+
+main {
+  grid-area: content;
+}
+
+aside {
+  grid-area: side;
+  margin-right: 0.5rem;
+}
+
+footer {
+  grid-area: footer;
+}
+
+/*This is a color helper from Natalya Shelborne.  I'm going to put the entire file here so it doesn't 
+jack up the rest of my CSS.  I want this at the bottom. */
+.c1 {
+  background-color: #ed212f;
+  height: 100px;
+  width: 150px;
+  text-align: center;
+  border: 1px solid #333333;
+  color: textColor(#ed212f);
+}
+
+.c2 {
+  background-color: #21eddf;
+  height: 100px;
+  width: 150px;
+  text-align: center;
+  border: 1px solid #333333;
+  color: textColor(#21eddf);
+}
+
+.c3 {
+  background-color: #cc424b;
+  height: 100px;
+  width: 150px;
+  text-align: center;
+  border: 1px solid #333333;
+  color: textColor(#cc424b);
+}
+
+.c4 {
+  background-color: #3cd3c8;
+  height: 100px;
+  width: 150px;
+  text-align: center;
+  border: 1px solid #333333;
+  color: textColor(#3cd3c8);
+}
+
+.c5 {
+  background-color: #3cd363;
+  height: 100px;
+  width: 150px;
+  text-align: center;
+  border: 1px solid #333333;
+  color: textColor(#3cd363);
+}
+
+.c6 {
+  background-color: #3cd386;
+  height: 100px;
+  width: 150px;
+  text-align: center;
+  border: 1px solid #333333;
+  color: textColor(#3cd386);
+}
+
+.c7 {
+  background-color: #5fb0aa;
+  height: 100px;
+  width: 150px;
+  text-align: center;
+  border: 1px solid #333333;
+  color: textColor(#5fb0aa);
+}
+
+.c8 {
+  background-color: #d0e8e6;
+  height: 100px;
+  width: 150px;
+  text-align: center;
+  border: 1px solid #333333;
+  color: textColor(#d0e8e6);
+}
+
+.c9 {
+  background-color: #224542;
+  height: 100px;
+  width: 150px;
+  text-align: center;
+  border: 1px solid #333333;
+  color: textColor(#224542);
+}
+
+.c10 {
+  background-color: #a8666a;
+  height: 100px;
+  width: 150px;
+  text-align: center;
+  border: 1px solid #333333;
+  color: textColor(#a8666a);
+}
+
+.c11 {
+  background-color: #e5d1d2;
+  height: 100px;
+  width: 150px;
+  text-align: center;
+  border: 1px solid #333333;
+  color: textColor(#e5d1d2);
+}
+
+.c12 {
+  background-color: #412527;
+  height: 100px;
+  width: 150px;
+  text-align: center;
+  border: 1px solid #333333;
+  color: textColor(#412527);
+}
+
+.c13 {
+  background-color: #d78288;
+  height: 100px;
+  width: 150px;
+  text-align: center;
+  border: 1px solid #333333;
+  color: textColor(#d78288);
+}
+
+.c14 {
+  background-color: #8d353b;
+  height: 100px;
+  width: 150px;
+  text-align: center;
+  border: 1px solid #333333;
+  color: textColor(#8d353b);
+}
+
+.c15 {
+  background-color: #7edcd5;
+  height: 100px;
+  width: 150px;
+  text-align: center;
+  border: 1px solid #333333;
+  color: textColor(#7edcd5);
+}
+
+.c16 {
+  background-color: white;
+  height: 100px;
+  width: 150px;
+  text-align: center;
+  border: 1px solid #333333;
+  color: textColor(white);
+}
+
+.c17 {
+  background-color: #878787;
+  height: 100px;
+  width: 150px;
+  text-align: center;
+  border: 1px solid #333333;
+  color: textColor(#878787);
+}
+
+.c18 {
+  background-color: #67a8a3;
+  height: 100px;
+  width: 150px;
+  text-align: center;
+  border: 1px solid #333333;
+  color: textColor(#67a8a3);
+}
+
+.c19 {
+  background-color: #719d9a;
+  height: 100px;
+  width: 150px;
+  text-align: center;
+  border: 1px solid #333333;
+  color: textColor(#719d9a);
+}
+
+.c20 {
+  background-color: #333333;
+  height: 100px;
+  width: 150px;
+  text-align: center;
+  border: 1px solid #333333;
+  color: textColor(#333333);
+}
+
+.c21 {
+  background-color: #3cd386;
+  height: 100px;
+  width: 150px;
+  text-align: center;
+  border: 1px solid #333333;
+  color: textColor(#3cd386);
+}
+
+.c22 {
+  background-color: #3cd363;
+  height: 100px;
+  width: 150px;
+  text-align: center;
+  border: 1px solid #333333;
+  color: textColor(#3cd363);
+}
+
+.colorContainer {
+  max-width: 80%;
+  height: 80vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  margin: auto;
+}
+
+/* End Layout On The colors.html Page */
