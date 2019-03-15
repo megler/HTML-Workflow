@@ -1,3 +1,5 @@
+a:hover { background-color: #e2e2e2;}
+
 /* Layout for Natalya Shelburne Color Picker 
 * Adapted from Practical Color Theory for People Who Code
 * https://tallys.github.io/color-theory/
@@ -232,7 +234,9 @@ body {
 
 .container {
   display: grid;
-  grid-template-areas: "header header header" "nav content side" "footer footer footer";
+  grid-template-areas: "header header header"
+ "nav content side"
+ "footer footer footer";
   grid-template-columns: 200px 1fr 200px;
   grid-template-rows: auto 1fr auto;
   grid-gap: 10px;
@@ -241,7 +245,11 @@ body {
 
 @media (max-width: 768px) {
   .container {
-    grid-template-areas: "header" "nav" "content" "side" "footer";
+    grid-template-areas: "header"
+ "nav"
+ "content"
+ "side"
+ "footer";
     grid-template-columns: 1fr;
     grid-template-rows: auto minmax(75px, auto) 1fr minmax(75px, auto) auto;
     /* Footer */
